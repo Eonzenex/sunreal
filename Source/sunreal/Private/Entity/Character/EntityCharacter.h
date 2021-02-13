@@ -8,6 +8,8 @@
 #include "Components/InputComponent.h"
 
 #include "../PC_EntityController.h"
+#include "Entity/Item/InventoryActorComponent.h"
+
 
 
 #include "EntityCharacter.generated.h"
@@ -20,8 +22,7 @@ UCLASS()
 class AEntityCharacter : public ACharacter
 {
 	GENERATED_BODY()
-
-
+	
 	/** First person mesh */
 	UPROPERTY(EditAnywhere, Category="Mesh")
 	USkeletalMeshComponent* FPSMesh;
@@ -30,6 +31,9 @@ class AEntityCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Camera", meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* FPSCamera;
 
+	/** Inventory */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Inventory", meta = (AllowPrivateAccess = "true"))
+	UInventoryActorComponent* Inventory;
 
 // functions
 public:

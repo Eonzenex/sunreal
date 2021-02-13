@@ -3,11 +3,15 @@
 
 #include "Entity/Character/EntityCharacter.h"
 #include "Components/CapsuleComponent.h"
+#include "Engine/DemoNetDriver.h"
+#include "Entity/Item/InventoryActorComponent.h"
 
 
 AEntityCharacter::AEntityCharacter()
 {
- 	// Set this character to call Tick() every frame.
+	bReplicates = true;
+
+	// Set this character to call Tick() every frame.
 	PrimaryActorTick.bCanEverTick = true;
 
 	// Set size for collision capsule
@@ -28,6 +32,8 @@ AEntityCharacter::AEntityCharacter()
 	FPSMesh->SetRelativeRotation(FRotator(1.9f, -19.19f, 5.2f));
 	FPSMesh->SetRelativeLocation(FVector(-0.5f, -4.4f, -155.7f));
 
+	// Create an inventory component
+	Inventory = CreateDefaultSubobject<UInventoryActorComponent>(TEXT("Inventory"));
 }
 
 void AEntityCharacter::BeginPlay()
@@ -116,5 +122,4 @@ void AEntityCharacter::CameraYawRate(float Rate)
 void AEntityCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }

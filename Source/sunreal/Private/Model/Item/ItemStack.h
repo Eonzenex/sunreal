@@ -1,9 +1,11 @@
 ﻿#pragma once
 
+#include "ItemStack.generated.h"
+
 /**
  * ItemStack is a stack of items, which can be placed in a slot.
  */
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FItemStack
 {
 	GENERATED_BODY()
@@ -14,7 +16,9 @@ struct FItemStack
 	UPROPERTY()
 	int32 Quantity;
 
-	FItemStack(int32, int32);
+	FItemStack();
+	
+	FItemStack(int ItemId, int Quantity);
 
 	void GetItemDefinition();
 };

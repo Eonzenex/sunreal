@@ -11,10 +11,6 @@ struct FItem
 {
 	GENERATED_BODY()
 
-	/* Unique ID of the item. */
-	UPROPERTY()
-	int32 Id;
-
 	/* Display name of the item. */
 	UPROPERTY()
 	FString Name;
@@ -23,5 +19,7 @@ struct FItem
 	UPROPERTY()
 	int32 MaxQuantityPerSlot;
 
-	FItem(int32, FString, int32);
+	FItem();
+	
+	FItem(FString, int32);
 };
